@@ -12,7 +12,7 @@ pkgs.stdenv.mkDerivation rec {
   };
   
   nativeBuildInputs = [ pkgs.cmake pkgs.pkg-config ];
-  buildInputs = [ pkgs.cmake pkgs.pkg-config pkgs.alsaLib pkgs.pulseaudio.dev ];  # Include additional dependencies here
+  buildInputs = [ pkgs.cmake pkgs.pkg-config pkgs.alsaLib pkgs.pulseaudio.dev pkgs.jack2.dev ];  # Include additional dependencies here
 
   cmakeFlags = [
     "-DCMAKE_BUILD_TYPE=Release"
@@ -20,7 +20,7 @@ pkgs.stdenv.mkDerivation rec {
     "-DCMAKE_C_FLAGS=-w"
     "-DWITH_ALSA=Yes"
     "-DWITH_PULSEAUDIO=Yes"
-    "-DWITH_JACK=No"  # Disable JACK backend
+    "-DWITH_JACK=Yes"  
   ];
 
   meta = with pkgs.lib; {
