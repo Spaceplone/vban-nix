@@ -16,6 +16,8 @@ pkgs.stdenv.mkDerivation rec {
 
   cmakeFlags = [
     "-DCMAKE_BUILD_TYPE=Release"
+    "-DCMAKE_VERBOSE_MAKEFILE=OFF"
+    "-DCMAKE_C_FLAGS=-w"
     "-DWITH_ALSA=Yes"
     "-DWITH_PULSEAUDIO=Yes"
     "-DWITH_JACK=No"  # Disable JACK backend
